@@ -13,7 +13,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        "/loginPath": (context) => InitialPage(),
+        "/loginPath": (context) => const Scaffold(
+              body: InitialPage(),
+            ),
         "/homePath": (context) => Scaffold(),
       },
       initialRoute: "/loginPath",
