@@ -1,7 +1,9 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
-import 'package:prototipo_x/InitialPage/controllers/login_controller.dart';
+import 'package:prototipo_x/Infra/api_controller.dart';
+import 'package:prototipo_x/controllers/login_controller.dart';
+import 'package:prototipo_x/models/user.dart';
 
 class InitialPage extends StatefulWidget {
   const InitialPage({super.key});
@@ -14,10 +16,11 @@ class _InitialPageState extends State<InitialPage> {
   late final LoginController lc;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     lc = LoginController.controller;
   }
+
+  Map credentials = {"email": "", "senha": ""};
 
   Widget Controller(state) {
     switch (state) {
@@ -63,6 +66,13 @@ class _InitialPageState extends State<InitialPage> {
                       fontSize: 18,
                     ),
                   )),
+            ),
+            InkWell(
+              onTap: () {},
+              child: const Text(
+                "entrar sem login",
+                style: TextStyle(decoration: TextDecoration.none),
+              ),
             )
           ],
         );
@@ -72,8 +82,8 @@ class _InitialPageState extends State<InitialPage> {
             SizedBox(
               width: 242,
               child: TextField(
-                onChanged: (value) => null,
-                decoration: InputDecoration(
+                onChanged: (value) => credentials["email"] = value,
+                decoration: const InputDecoration(
                     label: Text("Usuário"),
                     border: OutlineInputBorder(
                         borderSide: BorderSide(style: BorderStyle.solid))),
@@ -82,13 +92,13 @@ class _InitialPageState extends State<InitialPage> {
             Stack(
               children: [
                 Padding(
-                  padding: EdgeInsets.only(top: 16),
+                  padding: const EdgeInsets.only(top: 16),
                   child: SizedBox(
                     width: 242,
                     child: TextField(
                       obscureText: lc.isHide,
-                      onChanged: (value) => null,
-                      decoration: InputDecoration(
+                      onChanged: (value) => credentials["senha"] = value,
+                      decoration: const InputDecoration(
                           label: Text("Senha"),
                           border: OutlineInputBorder(
                               borderSide:
@@ -115,9 +125,12 @@ class _InitialPageState extends State<InitialPage> {
               ],
             ),
             Padding(
-              padding: EdgeInsets.only(top: 10),
+              padding: const EdgeInsets.only(top: 10),
               child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    User u1 = User().fromJson(credentials);
+                    print(u1.user);
+                  },
                   style: ButtonStyle(
                     fixedSize: MaterialStateProperty.all(const Size(242, 40)),
                     backgroundColor: MaterialStateProperty.all(
@@ -131,7 +144,7 @@ class _InitialPageState extends State<InitialPage> {
           ],
         );
       default:
-        return Text("");
+        return const Text("");
     }
   }
 
