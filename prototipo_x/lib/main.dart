@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:prototipo_x/homepage/homepage.dart';
 import 'InitialPage/initial_page.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -16,9 +18,9 @@ class MyApp extends StatelessWidget {
         "/loginPath": (context) => const Scaffold(
               body: InitialPage(),
             ),
-        "/homePath": (context) => Scaffold(),
+        "/homePath": (context) => homepage(),
       },
-      initialRoute: "/loginPath",
+      initialRoute: "/homePath",
     );
   }
 }
