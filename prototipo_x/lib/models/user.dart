@@ -1,11 +1,10 @@
 class User {
-  User({user, password, acessToken});
-  late final String user;
+  User({email, password, acessToken});
+  late final String email;
   late final String password;
-  late final String acessToken;
 
   User fromJson(Map data) {
-    User user = User(user: data["email"], password: data["senha"]);
+    User user = User(email: data["email"], password: data["senha"]);
     return user;
   }
 }
