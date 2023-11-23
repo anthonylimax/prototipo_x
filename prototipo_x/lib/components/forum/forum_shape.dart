@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:html';
 
 import 'package:flutter/material.dart';
-import 'package:prototipo_x/components/coment_component.dart';
+import 'package:prototipo_x/components/forum/coment_component.dart';
 import 'package:prototipo_x/models/Coment_Forum.dart';
 
 class ForumShape extends StatefulWidget {

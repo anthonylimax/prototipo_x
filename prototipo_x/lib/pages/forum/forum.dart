@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:prototipo_x/components/forum_shape.dart';
-import 'package:prototipo_x/components/header_back.dart';
+import 'package:prototipo_x/components/forum/forum_shape.dart';
+import 'package:prototipo_x/components/headers/header_back.dart';
 
 class Forum extends StatefulWidget {
   const Forum({super.key});

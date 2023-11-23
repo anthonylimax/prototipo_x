@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:prototipo_x/components/header_interest_component.dart';
-import 'package:prototipo_x/components/interest_items.dart';
+import 'package:prototipo_x/components/headers/header_interest_component.dart';
+import 'package:prototipo_x/components/interest/interest_items.dart';
 import 'package:prototipo_x/controllers/interest_controller.dart';
 
 class Interest extends StatefulWidget {
