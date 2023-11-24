@@ -122,11 +122,19 @@ flutter:
     - assets/back.png
     - assets/filter.png
     - assets/favorite.png
+    - assets/favorite_img.png
     - assets/direct.png
     - assets/comment.png
     - assets/facebook.png
     - assets/user-plus.png
+    - assets/map-pin.png
     - assets/plus.png
+    - assets/images.png
+    - assets/favorited.png
+    - assets/pin_map.png
+    - assets/participants.png
+    - assets/calendar.png
+    - assets/arrowRight.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

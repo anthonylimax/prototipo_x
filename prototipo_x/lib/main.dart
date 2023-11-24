@@ -1,6 +1,7 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:prototipo_x/pages/about/AboutEvent.dart';
 import 'package:prototipo_x/pages/forum/forum.dart';
 import 'package:prototipo_x/pages/eventos/event.dart';
 import 'package:prototipo_x/pages/interest/interest.dart';
@@ -26,9 +27,10 @@ class MyApp extends StatelessWidget {
         "/homePath": (context) => Home(),
         "/interest": (context) => Interest(),
         "/forumPath": (context) => Forum(),
-        "/events": (context) => Event()
+        "/events": (context) => Event(),
+        "/AboutEvent": (context) => AboutEvent()
       },
-      initialRoute: "/events",
+      initialRoute: "/AboutEvent",
     );
   }
 }

@@ -13,5 +13,6 @@ class LoginController extends ChangeNotifier {
 
   void ChangeEndPoint() {
     isHide = !isHide;
+    notifyListeners();
   }
 }
