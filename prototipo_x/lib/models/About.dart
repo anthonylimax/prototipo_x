@@ -10,7 +10,7 @@ class About {
       this.description, this.name);
 
   static FromJSON(Map json) {
-      return new About(json["numberOfParticipants"], json["timeStamp"],
+    return new About(json["numberOfParticipants"], json["timeStamp"],
         json["local"], json["profileAdm"], json["description"], json["name"]);
   }
 }

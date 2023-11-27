@@ -1,10 +1,10 @@
 class User {
-  User({email, password, acessToken});
-  late final String email;
-  late final String password;
+  late final String userpublicid;
+  late final String about;
+  late final String name;
 
-  User fromJson(Map data) {
-    User user = User(email: data["email"], password: data["senha"]);
-    return user;
+  User(this.userpublicid, this.about, this.name);
+  static User fromJson(Map data) {
+    return new User(data["user_public_id"], data["about"], data["name"]);
   }
 }

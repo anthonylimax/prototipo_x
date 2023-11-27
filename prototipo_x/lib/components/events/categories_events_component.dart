@@ -131,7 +131,7 @@ class _CategoryItemComponentState extends State<CategoryItemComponent> {
               return Container(
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 width: MediaQuery.of(context).size.width * 0.9,
-                decoration: BoxDecoration(boxShadow: [
+                decoration: BoxDecoration(boxShadow: const [
                   BoxShadow(color: Color(0x10000000), blurRadius: 5),
                   BoxShadow(color: Color(0xffffffff), blurRadius: 0),
                 ], borderRadius: BorderRadius.circular(20)),
@@ -165,7 +165,7 @@ class _CategoryItemComponentState extends State<CategoryItemComponent> {
                                 width: 200,
                                 child: Text(
                                   e["title"],
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Color(0xff120D26),
                                       fontSize: 16,
                                       fontWeight: FontWeight.w500),

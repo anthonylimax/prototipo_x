@@ -21,7 +21,7 @@ class HeaderDefault extends StatelessWidget {
         ),
       ]),
       child: SizedBox(
-        height: 120,
+        height: 90,
         width: double.infinity,
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [

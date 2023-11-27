@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:prototipo_x/pages/about/AboutEvent.dart';
 import 'package:prototipo_x/pages/forum/forum.dart';
@@ -21,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: "Montserrat"),
       routes: {
-        "/loginPath": (context) => const Scaffold(
+        "/": (context) => const Scaffold(
               body: InitialPage(),
             ),
         "/homePath": (context) => Home(),
@@ -30,7 +28,7 @@ class MyApp extends StatelessWidget {
         "/events": (context) => Event(),
         "/AboutEvent": (context) => AboutEvent()
       },
-      initialRoute: "/AboutEvent",
+      initialRoute: "/",
     );
   }
 }

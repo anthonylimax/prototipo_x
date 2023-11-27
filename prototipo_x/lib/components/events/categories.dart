@@ -43,6 +43,13 @@ class CategoriesState extends State<Categories> {
                   },
                   child: Container(
                     alignment: Alignment.center,
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: listItems[index]["isSelected"]
+                            ? Color(0xFF4A91A5)
+                            : null,
+                        border: Border.all(color: Color(0xFF4A91A5), width: 1)),
                     child: Text(
                       listItems[index]["title"],
                       style: TextStyle(
@@ -51,16 +58,9 @@ class CategoriesState extends State<Categories> {
                             : null,
                       ),
                     ),
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: listItems[index]["isSelected"]
-                            ? Color(0xFF4A91A5)
-                            : null,
-                        border: Border.all(color: Color(0xFF4A91A5), width: 1)),
                   ),
                 ),
-                Padding(padding: EdgeInsets.only(left: 10))
+                const Padding(padding: EdgeInsets.only(left: 10))
               ],
             );
           }),

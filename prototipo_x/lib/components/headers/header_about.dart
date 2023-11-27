@@ -19,7 +19,7 @@ class HeaderAbout extends StatelessWidget {
             child: Container(
                 width: 40, height: 40, child: Image.asset("assets/back.png")),
           ),
-          Text("Detalher Evento",
+          Text("Detalhes Evento",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
           InkWell(
             onTap: () {},

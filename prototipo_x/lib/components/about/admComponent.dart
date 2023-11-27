@@ -72,7 +72,6 @@ class _AdmComponentState extends State<AdmComponent> {
           ),
           InkWell(
             onTap: () {
-              print("sasa");
             },
             child: Container(
               padding: EdgeInsets.symmetric(vertical: 8, horizontal: 13),
