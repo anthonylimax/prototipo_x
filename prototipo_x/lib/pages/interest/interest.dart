@@ -17,39 +17,48 @@ class _InterestState extends State<Interest> {
       body: AnimatedBuilder(
         animation: instance,
         builder: (ctx, child) {
-          return Column(
+          return ListView(
             children: [
-              InteresHeader(),
-              Padding(padding: EdgeInsets.only(top: 30)),
-              SizedBox(
-                width: 350,
-                child: InterestItem(),
-              ),
-              Padding(padding: EdgeInsets.only(bottom: 20)),
-              InkWell(
-                onTap: () {},
-                borderRadius: BorderRadius.circular(10),
-                child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: instance.interests.length >= 3
-                          ? Color.fromRGBO(7, 66, 97, 1)
-                          : Color.fromRGBO(7, 66, 97, 0.6),
-                    ),
-                    child: SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.5  ,
-                      height: 40,
-                      child: Center(
-                          child: Text(
-                        'Prosseguir',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          color: Colors.white,
-                          fontSize: 18,
+              Column(
+                children: [
+                  InteresHeader(),
+                  Padding(padding: EdgeInsets.only(top: 30)),
+                  SizedBox(
+                    width: 350,
+                    child: InterestItem(),
+                  ),
+                  Padding(padding: EdgeInsets.only(bottom: 20)),
+                  InkWell(
+                    onTap: () {
+                      if (instance.interests.length >= 3) {
+                        Navigator.pushNamed(context, "/homePath");
+                      }
+                    },
+                    borderRadius: BorderRadius.circular(10),
+                    child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: instance.interests.length >= 3
+                              ? Color.fromRGBO(7, 66, 97, 1)
+                              : Color.fromRGBO(7, 66, 97, 0.6),
                         ),
-                      )),
-                    )),
-              )
+                        child: SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.5,
+                          height: 40,
+                          child: Center(
+                              child: Text(
+                            'Prosseguir',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white,
+                              fontSize: 18,
+                            ),
+                          )),
+                        )),
+                  ),
+                  Padding(padding: EdgeInsets.all(10))
+                ],
+              ),
             ],
           );
         },

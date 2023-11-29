@@ -6,16 +6,27 @@ import 'package:dio/dio.dart';
 
 class ApiController extends ChangeNotifier {
   var dio = Dio();
+  var url = "http://localhost:8084/";
   StateControll state = StateControll.start;
   static ApiController instance = ApiController();
   getForuns() async {
-    var foruns = await dio.post("http://localhost:8084/getforuns");
-    print(foruns);
-    return;
+    var foruns = await dio.post('${url}getforuns');
+    var data = foruns.data;
+    if (data["error"] != true) {
+      Map convert = {
+        "interest": data["name_interest"],
+        "public_user_id": data["public_user_id"],
+      };
+
+      return convert;
+    } else {
+
+      return false;
+    }
   }
 
   verify(Map login) async {
-    state = StateControll.loading;
+    state = StateControll.loading;  
     notifyListeners();
     LoginCredentials loginCredentials = LoginCredentials.instance;
     var foruns =
@@ -33,8 +44,8 @@ class ApiController extends ChangeNotifier {
       return true;
     } else {
       state = StateControll.start;
-      return false;
       notifyListeners();
+      return false;
     }
   }
 }
