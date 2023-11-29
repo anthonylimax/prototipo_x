@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:prototipo_x/pages/about/AboutEvent.dart';
+import 'package:prototipo_x/pages/favorites/favorites.dart';
 import 'package:prototipo_x/pages/forum/forum.dart';
 import 'package:prototipo_x/pages/eventos/event.dart';
 import 'package:prototipo_x/pages/interest/interest.dart';
-import 'pages/InitialPage/initial_page.dart';
+import 'pages/login/login.dart';
 import 'pages/home/home.dart';
 
 void main() {
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget {
         "/interest": (context) => Interest(),
         "/forumPath": (context) => Forum(),
         "/events": (context) => Event(),
-        "/AboutEvent": (context) => AboutEvent()
+        "/AboutEvent": (context) => AboutEvent(),
+        "/favorites" : (context) => Favorites(),
       },
       initialRoute: "/",
     );

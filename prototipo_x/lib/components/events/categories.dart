@@ -2,23 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:prototipo_x/controllers/event_controller.dart';
 
 class Categories extends StatefulWidget {
-  const Categories({super.key});
-
+  const Categories({super.key, required this.listItems});
+  final List<Map> listItems;
   @override
-  State<Categories> createState() => CategoriesState();
+  State<Categories> createState() => CategoriesState(listItems: listItems);
 }
 
 class CategoriesState extends State<Categories> {
+  
   EventController instance = EventController.instance;
-  List<Map> listItems = [
-    {"title": "back-end", "isSelected": false},
-    {"title": "front-end", "isSelected": false},
-    {"title": "backend", "isSelected": false},
-    {"title": "backend", "isSelected": false},
-    {"title": "backend", "isSelected": false},
-    {"title": "backend", "isSelected": false}
-  ];
+  final List<Map> listItems;
   int prev = 0;
+
+  CategoriesState({required this.listItems});
   @override
   Widget build(BuildContext context) {
     return Container(

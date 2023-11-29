@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prototipo_x/Infra/api_controller.dart';
-import 'package:prototipo_x/components/initpage/init_page.dart';
-import 'package:prototipo_x/components/initpage/login_component.dart';
+import 'package:prototipo_x/components/login_components/login_page.dart';
+import 'package:prototipo_x/components/login_components/login_component.dart';
 import 'package:prototipo_x/controllers/login_controller.dart';
 
 class InitialPage extends StatefulWidget {
@@ -22,7 +22,7 @@ class _InitialPageState extends State<InitialPage> {
   Widget Controller(state) {
     switch (state) {
       case 0:
-        return Initpage();
+        return LoginPage();
       case 1:
         return Logincomponenet();
       default:

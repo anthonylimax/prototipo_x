@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prototipo_x/components/events/categories.dart';
 import 'package:prototipo_x/components/events/categories_events_component.dart';
-import 'package:prototipo_x/components/headers/header_back.dart';
 import 'package:prototipo_x/components/headers/header_default.dart';
 
 class Event extends StatefulWidget {
@@ -34,7 +33,7 @@ class _Event extends State<Event> {
               Padding(padding: EdgeInsets.only(top: 20)),
               Padding(
                 padding: const EdgeInsets.only(left: 16),
-                child: Categories(),
+                child: Categories(listItems: []),
               ),
               Padding(padding: EdgeInsets.only(top: 50)),
               Padding(

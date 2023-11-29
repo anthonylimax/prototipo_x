@@ -1,7 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:prototipo_x/models/user.dart';
 import 'package:prototipo_x/repository/login_credentials.dart';
-import 'package:uuid/uuid.dart';
 import 'package:dio/dio.dart';
 
 class ApiController extends ChangeNotifier {
@@ -9,6 +7,8 @@ class ApiController extends ChangeNotifier {
   var url = "http://localhost:8084/";
   StateControll state = StateControll.start;
   static ApiController instance = ApiController();
+  
+  
   getForuns() async {
     var foruns = await dio.post('${url}getforuns');
     var data = foruns.data;

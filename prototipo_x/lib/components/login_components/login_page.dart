@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:prototipo_x/controllers/login_controller.dart';
 
-class Initpage extends StatefulWidget {
-  const Initpage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<Initpage> createState() => _InitpageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _InitpageState extends State<Initpage> {
+class _LoginPageState extends State<LoginPage> {
   late final LoginController lc;
   @override
   void initState() {

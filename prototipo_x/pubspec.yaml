@@ -135,6 +135,7 @@ flutter:
     - assets/participants.png
     - assets/calendar.png
     - assets/arrowRight.png
+    - assets/plus-without-background.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

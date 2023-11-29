@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prototipo_x/models/user.dart';
 
 class LoginController extends ChangeNotifier {
   static LoginController controller = LoginController();
