@@ -23,7 +23,9 @@ class _HeaderHomeState extends State<HeaderHome> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Scaffold.of(context).openDrawer();
+            },
             child: Container(
               width: 33,
               height: 33,

@@ -140,6 +140,9 @@ flutter:
     - assets/calendary.png
     - assets/group.png
     - assets/message.png
+    - assets/bell.png
+    - assets/settings.png
+    - assets/profile.png
     - assets/plus-without-background.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
