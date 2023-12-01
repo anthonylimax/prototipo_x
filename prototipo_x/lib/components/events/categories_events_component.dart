@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:prototipo_x/Infra/api_controller.dart';
 import 'package:prototipo_x/controllers/event_controller.dart';
+import 'package:prototipo_x/repository/login_credentials.dart';
 
 class CategoryItemComponent extends StatefulWidget {
   const CategoryItemComponent({super.key});
@@ -10,116 +12,7 @@ class CategoryItemComponent extends StatefulWidget {
 
 class _CategoryItemComponentState extends State<CategoryItemComponent> {
   EventController instance = EventController.instance;
-  List<Map> items_category = [
-    {
-      "img":
-          "https://thumbs.dreamstime.com/z/c%C3%B3digo-fonte-de-programa%C3%A7%C3%A3o-computador-script-abstrato-background-html-desenvolvimento-uma-web-tela-ou-aplicativo-tecnologia-206610726.jpg?w=2048",
-      "timestamp": "Qua, Mar 28 • 17:30 - 18:30",
-      "title": "Jornadax de Lógica da programação",
-      "local": "Recife, PE - Brasil",
-      "category": "front-end",
-      "favorited": false
-    },
-    {
-      "img":
-          "https://thumbs.dreamstime.com/z/c%C3%B3digo-fonte-de-programa%C3%A7%C3%A3o-computador-script-abstrato-background-html-desenvolvimento-uma-web-tela-ou-aplicativo-tecnologia-206610726.jpg?w=2048",
-      "timestamp": "Qua, Mar 28 • 17:30 - 18:30",
-      "title": "Jornaday de Lógica da programação",
-      "local": "Recife, PE - Brasil",
-      "category": "back-end",
-      "favorited": false
-    },
-    {
-      "img":
-          "https://thumbs.dreamstime.com/z/c%C3%B3digo-fonte-de-programa%C3%A7%C3%A3o-computador-script-abstrato-background-html-desenvolvimento-uma-web-tela-ou-aplicativo-tecnologia-206610726.jpg?w=2048",
-      "timestamp": "Qua, Mar 28 • 17:30 - 18:30",
-      "title": "Jornadax de Lógica da programação",
-      "local": "Recife, PE - Brasil",
-      "category": "front-end",
-      "favorited": false
-    },
-    {
-      "img":
-          "https://thumbs.dreamstime.com/z/c%C3%B3digo-fonte-de-programa%C3%A7%C3%A3o-computador-script-abstrato-background-html-desenvolvimento-uma-web-tela-ou-aplicativo-tecnologia-206610726.jpg?w=2048",
-      "timestamp": "Qua, Mar 28 • 17:30 - 18:30",
-      "title": "Jornaday de Lógica da programação",
-      "local": "Recife, PE - Brasil",
-      "category": "back-end",
-      "favorited": false
-    },
-    {
-      "img":
-          "https://thumbs.dreamstime.com/z/c%C3%B3digo-fonte-de-programa%C3%A7%C3%A3o-computador-script-abstrato-background-html-desenvolvimento-uma-web-tela-ou-aplicativo-tecnologia-206610726.jpg?w=2048",
-      "timestamp": "Qua, Mar 28 • 17:30 - 18:30",
-      "title": "Jornadax de Lógica da programação",
-      "local": "Recife, PE - Brasil",
-      "category": "front-end",
-      "favorited": false
-    },
-    {
-      "img":
-          "https://thumbs.dreamstime.com/z/c%C3%B3digo-fonte-de-programa%C3%A7%C3%A3o-computador-script-abstrato-background-html-desenvolvimento-uma-web-tela-ou-aplicativo-tecnologia-206610726.jpg?w=2048",
-      "timestamp": "Qua, Mar 28 • 17:30 - 18:30",
-      "title": "Jornaday de Lógica da programação",
-      "local": "Recife, PE - Brasil",
-      "category": "back-end",
-      "favorited": false,
-    },
-    {
-      "img":
-          "https://thumbs.dreamstime.com/z/c%C3%B3digo-fonte-de-programa%C3%A7%C3%A3o-computador-script-abstrato-background-html-desenvolvimento-uma-web-tela-ou-aplicativo-tecnologia-206610726.jpg?w=2048",
-      "timestamp": "Qua, Mar 28 • 17:30 - 18:30",
-      "title": "Jornaday de Lógica da programação",
-      "local": "Recife, PE - Brasil",
-      "category": "back-end",
-      "favorited": false
-    },
-    {
-      "img":
-          "https://thumbs.dreamstime.com/z/c%C3%B3digo-fonte-de-programa%C3%A7%C3%A3o-computador-script-abstrato-background-html-desenvolvimento-uma-web-tela-ou-aplicativo-tecnologia-206610726.jpg?w=2048",
-      "timestamp": "Qua, Mar 28 • 17:30 - 18:30",
-      "title": "Jornadax de Lógica da programação",
-      "local": "Recife, PE - Brasil",
-      "category": "front-end",
-      "favorited": false
-    },
-    {
-      "img":
-          "https://thumbs.dreamstime.com/z/c%C3%B3digo-fonte-de-programa%C3%A7%C3%A3o-computador-script-abstrato-background-html-desenvolvimento-uma-web-tela-ou-aplicativo-tecnologia-206610726.jpg?w=2048",
-      "timestamp": "Qua, Mar 28 • 17:30 - 18:30",
-      "title": "Jornaday de Lógica da programação",
-      "local": "Recife, PE - Brasil",
-      "category": "back-end",
-      "favorited": false,
-    },
-    {
-      "img":
-          "https://thumbs.dreamstime.com/z/c%C3%B3digo-fonte-de-programa%C3%A7%C3%A3o-computador-script-abstrato-background-html-desenvolvimento-uma-web-tela-ou-aplicativo-tecnologia-206610726.jpg?w=2048",
-      "timestamp": "Qua, Mar 28 • 17:30 - 18:30",
-      "title": "Jornaday de Lógica da programação",
-      "local": "Recife, PE - Brasil",
-      "category": "back-end",
-      "favorited": false
-    },
-    {
-      "img":
-          "https://thumbs.dreamstime.com/z/c%C3%B3digo-fonte-de-programa%C3%A7%C3%A3o-computador-script-abstrato-background-html-desenvolvimento-uma-web-tela-ou-aplicativo-tecnologia-206610726.jpg?w=2048",
-      "timestamp": "Qua, Mar 28 • 17:30 - 18:30",
-      "title": "Jornadax de Lógica da programação",
-      "local": "Recife, PE - Brasil",
-      "category": "front-end",
-      "favorited": false
-    },
-    {
-      "img":
-          "https://thumbs.dreamstime.com/z/c%C3%B3digo-fonte-de-programa%C3%A7%C3%A3o-computador-script-abstrato-background-html-desenvolvimento-uma-web-tela-ou-aplicativo-tecnologia-206610726.jpg?w=2048",
-      "timestamp": "Qua, Mar 28 • 17:30 - 18:30",
-      "title": "Jornaday de Lógica da programação",
-      "local": "Recife, PE - Brasil",
-      "category": "back-end",
-      "favorited": false,
-    }
-  ];
+  List<dynamic> items_category = LoginCredentials.instance.events;
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
@@ -171,42 +64,49 @@ class _CategoryItemComponentState extends State<CategoryItemComponent> {
                                       fontWeight: FontWeight.w500),
                                 ),
                               ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Container(
-                                    child: Row(
-                                      children: [
-                                        Image.asset("assets/map-pin.png"),
-                                        Text(
-                                          e["local"],
-                                          style: TextStyle(
-                                              color: Color(0xff747688)),
-                                        ),
-                                      ],
+                              Container(
+                                width: 300,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Container(
+                                      child: Row(
+                                        children: [
+                                          Image.asset("assets/map-pin.png"),
+                                          Text(
+                                            e["local"],
+                                            style: TextStyle(
+                                                color: Color(0xff747688)),
+                                          ),
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                  Padding(
-                                      padding: EdgeInsets.only(
-                                          left: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.2)),
-                                  InkWell(
-                                    onTap: () {
-                                      setState(() {
-                                        e["favorited"] = !e["favorited"];
-                                      });
-                                    },
-                                    child: Image.asset(
-                                      e["favorited"]
-                                          ? "assets/favorited.png"
-                                          : "assets/favorite_img.png",
-                                      height: 43,
-                                      width: 40,
-                                    ),
-                                  )
-                                ],
+                                    InkWell(
+                                      onTap: () {
+                                        print(e);
+                                        setState(() {
+                                          if (e['favorited']) {
+                                            ApiController.instance
+                                                .AddingFavorite(e['id_event']);
+                                          } else {
+                                            ApiController.instance
+                                                .removingFavorite(
+                                                    e['id_event']);
+                                          }
+                                          e["favorited"] = !e["favorited"];
+                                        });
+                                      },
+                                      child: Image.asset(
+                                        e["favorited"]
+                                            ? "assets/favorited.png"
+                                            : "assets/favorite_img.png",
+                                        height: 43,
+                                        width: 40,
+                                      ),
+                                    )
+                                  ],
+                                ),
                               )
                             ],
                           ),

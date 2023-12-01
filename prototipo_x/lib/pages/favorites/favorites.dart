@@ -9,16 +9,16 @@ class Favorites extends StatefulWidget {
   State<Favorites> createState() => _FavoritesState();
 }
 
-
 class _FavoritesState extends State<Favorites> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
         children: [
-        HeaderDefault(text: "Favoritos"),
-        Favorite_Component(),
-      ],
+          HeaderDefault(text: "Favoritos"),
+          Padding(padding: EdgeInsets.only(bottom: 20)),
+          Favorite_Component(),
+        ],
       ),
     );
   }

@@ -7,8 +7,7 @@ class ApiController extends ChangeNotifier {
   var url = "http://localhost:8084/";
   StateControll state = StateControll.start;
   static ApiController instance = ApiController();
-  
-  
+
   getForuns() async {
     var foruns = await dio.post('${url}getforuns');
     var data = foruns.data;
@@ -20,13 +19,31 @@ class ApiController extends ChangeNotifier {
 
       return convert;
     } else {
-
       return false;
     }
   }
 
+  removingFavorite(String id_event) async {
+    try {
+      var data = LoginCredentials.instance.profile.userpublicid;
+      await Dio().delete("http://localhost:8084/deleting/favorite",
+          data: {"id_event": id_event, "user_public_id": data});
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+  AddingFavorite(String id_event) async {
+    try {
+      var data = LoginCredentials.instance.profile.userpublicid;
+      await Dio().post("http://localhost:8084/adding/favorite",
+          data: {"id_event": id_event, "user_public_id": data});
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+
   verify(Map login) async {
-    state = StateControll.loading;  
+    state = StateControll.loading;
     notifyListeners();
     LoginCredentials loginCredentials = LoginCredentials.instance;
     var foruns =

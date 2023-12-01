@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:prototipo_x/controllers/event_controller.dart';
+import 'package:prototipo_x/repository/interest_items.dart';
 
 class Categories extends StatefulWidget {
   const Categories({super.key, required this.listItems});
   final List<Map> listItems;
   @override
-  State<Categories> createState() => CategoriesState(listItems: listItems);
+  State<Categories> createState() => CategoriesState();
 }
 
 class CategoriesState extends State<Categories> {
-  
   EventController instance = EventController.instance;
-  final List<Map> listItems;
+  final List<dynamic> listItems = InterestItems.instance.interets;
   int prev = 0;
 
-  CategoriesState({required this.listItems});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -61,6 +60,5 @@ class CategoriesState extends State<Categories> {
             );
           }),
     );
-    ;
   }
 }

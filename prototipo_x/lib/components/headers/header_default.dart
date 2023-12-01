@@ -26,7 +26,9 @@ class HeaderDefault extends StatelessWidget {
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.pop(context);
+            },
             borderRadius: const BorderRadius.all(Radius.circular(50)),
             child: SizedBox(
               width: 50,

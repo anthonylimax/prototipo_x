@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: "Montserrat"),
       routes: {
         "/": (context) => const Scaffold(
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         "/forumPath": (context) => Forum(),
         "/events": (context) => Event(),
         "/AboutEvent": (context) => AboutEvent(),
-        "/favorites" : (context) => Favorites(),
+        "/favorites": (context) => Favorites(),
       },
       initialRoute: "/",
     );

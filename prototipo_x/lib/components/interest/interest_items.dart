@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:prototipo_x/controllers/interest_controller.dart';
+import 'package:prototipo_x/repository/interest_items.dart';
+import 'package:prototipo_x/repository/login_credentials.dart';
 
 class InterestItem extends StatefulWidget {
   InterestItem({super.key});
@@ -11,11 +13,10 @@ class InterestItem extends StatefulWidget {
 class _InterestItem extends State<InterestItem> {
   late InterestController instance = InterestController.instance;
 
-  late List<dynamic> elementos = [];
+  late List<dynamic> elementos = LoginCredentials.instance.elementos;
 
   @override
   void initState() {
-    fetchDataFromAPI();
     // TODO: implement initState
     super.initState();
   }
@@ -28,18 +29,18 @@ class _InterestItem extends State<InterestItem> {
         return InkWell(
           onTap: () {
             setState(() {
-              if (element['selected'] == true) {
-                instance.removeString(element['interest']);
-                element['selected'] = !element['selected'];
+              if (element['isSelected'] == true) {
+                instance.removeString(element['title']);
+                element['isSelected'] = !element['isSelected'];
               } else {
-                instance.addString(element['interest']);
-                element['selected'] = !element['selected'];
+                instance.addString(element['title']);
+                element['isSelected'] = !element['isSelected'];
               }
             });
           },
           child: Container(
             decoration: BoxDecoration(
-                color: element['selected'] == true
+                color: element['isSelected'] == true
                     ? const Color.fromRGBO(7, 66, 97, 1)
                     : const Color.fromARGB(255, 255, 255, 255),
                 border: Border.all(
@@ -49,9 +50,9 @@ class _InterestItem extends State<InterestItem> {
             child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: Text(
-                  element["interest"],
+                  element["title"],
                   style: TextStyle(
-                    color: element['selected']
+                    color: element['isSelected']
                         ? Colors.white
                         : Color.fromRGBO(148, 148, 148, 1),
                   ),
@@ -64,29 +65,6 @@ class _InterestItem extends State<InterestItem> {
 
   Widget _loading() {
     return CircularProgressIndicator();
-  }
-
-  Future<void> fetchDataFromAPI() async {
-    try {
-      var response = await Dio().get('http://localhost:8084/getinterests');
-      if (response.statusCode == 200) {
-        List<dynamic> result = [];
-        setState(() {
-          var data = response.data as List<dynamic>;
-          data.forEach((element) {
-            result.add(
-                {"interest": "${element['name_interest']}", "selected": false});
-          });
-          elementos = result;
-        });
-      } else {
-        // Trate os erros ou códigos de status não 200 aqui
-        print('Erro ao carregar os dados');
-      }
-    } catch (e) {
-      // Lidar com exceções ou erros de conexão
-      print('Erro: $e');
-    }
   }
 
   @override
